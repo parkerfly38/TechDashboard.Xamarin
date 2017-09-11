@@ -1,0 +1,6 @@
+C:\Users\bkresge\Documents\Visual Studio 2015\Projects\Tech Dashboard\TechDashboard\TechDashboard.WinPhone\obj\Debug\TechDashboard.WinPhone.csprojResolveAssemblyReference.cache
+C:\Users\bkresge\Documents\Visual Studio 2015\Projects\Tech Dashboard\TechDashboard\TechDashboard.WinPhone\obj\Debug\App.g.cs
+C:\Users\bkresge\Documents\Visual Studio 2015\Projects\Tech Dashboard\TechDashboard\TechDashboard.WinPhone\obj\Debug\MainPage.g.cs
+C:\Users\bkresge\Documents\Visual Studio 2015\Projects\Tech Dashboard\TechDashboard\TechDashboard.WinPhone\obj\Debug\TechDashboard.WinPhone.g.resources
+C:\Users\bkresge\Documents\Visual Studio 2015\Projects\Tech Dashboard\TechDashboard\TechDashboard.WinPhone\obj\Debug\TechDashboard.WinPhone.Resources.AppResources.resources
+C:\Users\bkresge\Documents\Visual Studio 2015\Projects\Tech Dashboard\TechDashboard\TechDashboard.WinPhone\obj\Debug\TechDashboard.WinPhone.csproj.GenerateResource.Cache

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TechDashboard.PartEditExtdDescPage">
+	<ContentPage.Content>
+		
+        <Grid x:Name="titleLayout" Background="#3498db" Grid.Row="0" HorizontalAlignment="Stretch" Height="80">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="labelTitle" Text="PART EXTENDED DESCRIPTION" FontSize="22" TextColor="White" HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center"/>
+        </Grid>
+		<Grid x:Name="gridExtdDesc" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110" />
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label x:Name="labelItemCodeLabel" Text="Item Code" TextColor="#7F8C8D" Grid.Column="0" Grid.Row="0"
+                   VerticalAlignment="Center" Height="25"/>
+            <Label x:Name="labelItemCode" Grid.Column="1" Grid.Row="0" MinimumWidthRequest="120" MinimumHeightRequest="25" HorizontalOptions="Start" 
+                             VerticalOptions="Center" IsEnabled="false"/>
+            <Label x:Name="labelItemCodeDesc" TextColor="#7F8C8D" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" 
+                   VerticalOptions="Center" />
+            
+            <Label x:Name="labelExtdDesc" Text="Extd Description" TextColor="#7F8C8D" Grid.Column="0" Grid.Row="1" />
+            <Entry x:Name="entryExtdDesc" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" HorizontalOptions="Start" MinimumWidthRequest="325"
+                     VerticalOptions="CenterAndExpand" MinimumHeightRequest="50" />
+
+            <StackLayout x:Name="panelButtons" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="Start">
+                <Button x:Name="buttonSave" BackgroundColor="#2ECC71" BorderColor="#2ECC71" HorizontalOptions="CenterAndExpand" MinimumHeightRequest="40"
+                        Clicked="Handle_Clicked" Text="SAVE" TextColor="White">
+                </Button>
+                <Button x:Name="buttonCancel" BackgroundColor="#E74C3C" BorderColor="#E74C3C" HorizontalOptions="CenterAndExpand" MinimumHeightRequest="40"
+                        Clicked="Cancel_Clicked" Text="CANCEL" TextColor="White">
+                </Button>
+            </StackLayout>
+        </Grid>
+	</ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="4">
+            <objects>
+                <viewController id="5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2"/>
+                        <viewControllerLayoutGuide type="bottom" id="3"/>
+                    </layoutGuides>
+                    <imageView userInteractionEnabled="NO" contentMode="center" id="60" key="view" image="td_sq.png">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <rect key="frame" x="716" y="312" width="160" height="240"/>
+                        </variation>
+                    </imageView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="346" y="31"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Default-568h.png" width="320" height="568"/>
+        <image name="Default-Portrait.png" width="768" height="1004"/>
+        <image name="Default.png" width="320" height="480"/>
+        <image name="Icon-60.png" width="60" height="60"/>
+        <image name="Icon-76.png" width="57" height="57"/>
+        <image name="Icon-Small-40.png" width="40" height="40"/>
+        <image name="Icon-Small.png" width="29" height="29"/>
+        <image name="alarm.png" width="26" height="26"/>
+        <image name="page_empty.png" width="26" height="26"/>
+        <image name="globe.png" width="26" height="26"/>
+        <image name="cog_01.png" width="26" height="26"/>
+        <image name="todo.png" width="24" height="24"/>
+        <image name="Schedule.PNG" width="43" height="43"/>
+        <image name="ScheduleSmall.png" width="24" height="24"/>
+        <image name="Parts.PNG" width="43" height="43"/>
+        <image name="Notes.PNG" width="43" height="43"/>
+        <image name="Arrive.PNG" width="43" height="43"/>
+        <image name="Depart.PNG" width="43" height="43"/>
+        <image name="Expense.png" width="43" height="43"/>
+        <image name="History.PNG" width="43" height="43"/>
+        <image name="MiscTime.png" width="43" height="43"/>
+        <image name="Technician.PNG" width="43" height="43"/>
+        <image name="Map.PNG" width="43" height="43"/>
+        <image name="CheckMark.png" width="43" height="43"/>
+        <image name="OpenSans-Bold.ttf" width="0" height="0"/>
+        <image name="OpenSans-BoldItalic.ttf" width="0" height="0"/>
+        <image name="OpenSans-ExtraBold.ttf" width="0" height="0"/>
+        <image name="OpenSans-ExtraBoldItalic.ttf" width="0" height="0"/>
+        <image name="OpenSans-Italic.ttf" width="0" height="0"/>
+        <image name="OpenSans-Light.ttf" width="0" height="0"/>
+        <image name="OpenSans-LightItalic.ttf" width="0" height="0"/>
+        <image name="OpenSans-Regular.ttf" width="0" height="0"/>
+        <image name="OpenSans-Semibold.ttf" width="0" height="0"/>
+        <image name="OpenSans-SemiboldItalic.ttf" width="0" height="0"/>
+        <image name="rkl-logo-20141-1.png" width="320" height="80"/>
+        <image name="td_sq.png" width="300" height="359"/>
+        <image name="available-updates-64.png" width="64" height="64"/>
+        <image name="td_sq_logo_167x167.png" width="167" height="167"/>
+        <image name="sync.png" width="64" height="64"/>
+        <image name="banknotes.png" width="64" height="64"/>
+        <image name="calendar.png" width="64" height="64"/>
+        <image name="clipboard.png" width="64" height="64"/>
+        <image name="cog.png" width="64" height="64"/>
+        <image name="exit.png" width="64" height="64"/>
+        <image name="fullfolder.png" width="64" height="64"/>
+        <image name="mapmarker.png" width="64" height="64"/>
+        <image name="message.png" width="64" height="64"/>
+        <image name="time.png" width="64" height="64"/>
+        <image name="user.png" width="64" height="64"/>
+        <image name="viewdetails.png" width="64" height="64"/>
+        <image name="worker.png" width="64" height="64"/>
+        <image name="Icon-57.png" width="57" height="57"/>
+    </resources>
+</document>

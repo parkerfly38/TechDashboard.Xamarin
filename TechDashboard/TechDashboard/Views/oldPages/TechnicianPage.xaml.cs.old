@@ -1,0 +1,81 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Xamarin.Forms;
+
+using TechDashboard.ViewModels;
+using TechDashboard.Models;
+using System.ComponentModel;
+
+namespace TechDashboard.Views
+{
+    public partial class TechnicianPage : ContentPage
+    {
+        TechnicianPageViewModel _vm;
+
+        public TechnicianPage()
+        {
+            InitializeComponent();
+
+            _vm = new TechnicianPageViewModel();
+            BindingContext = _vm.Technician;
+
+            _vm.PropertyChanged += CustomerChanged;
+        }
+
+        public void btnSearchSData_OnClick(object sender, EventArgs e)
+        {
+            //AR_Customer customer;
+
+            //this.BindingContext = null;
+
+            //string customerNumber = CustomerNo.Text;
+            //customer = _vm.GetCustomerFromSData(customerNumber);
+
+            //if (customer != null)
+            //{
+            //    this.BindingContext = customer;
+            //}
+           // _vm.GetTechnicianFromSData(TechnicianNo.Text);
+        }
+
+        public void btnSearchDB_OnClick(object sender, EventArgs e)
+        {
+          //  _vm.GetTechnicianFromDB(TechnicianNo.Text);
+        }
+
+        public void btnRefreshList_OnClick(object sender, EventArgs e)
+        {
+            _vm.g
+        }
+
+        public void btnFillDB_OnClick(object sender, EventArgs e)
+        {
+            _vm.FillDbFromSdata();
+        }
+
+        private void CustomerChanged(object sender, PropertyChangedEventArgs e)
+        {
+            BindingContext = _vm.Technician;
+        }
+
+        public void btnTestPage_OnClick(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new TestPage());
+        }
+
+        public void lvTechniciansList_OnItemTapped(object o, ItemTappedEventArgs e)
+        {
+            // puke
+            var contact = e.Item as Models.JT_Technician;
+            if (contact != null)
+            {
+                DisplayAlert("Aha!", String.Format("You selected {0} {1}", contact.FirstName, contact.LastName), "OK");
+            }
+        }
+    }
+}
+

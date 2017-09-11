@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TechDashboard.PartsListPageNew"
+	xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v16.2">
+	<ContentPage.Content>
+	<StackLayout Orientation="Vertical">
+	<Grid x:Name="titleLayout" BackgroundColor="#3498db">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="labelTitle" Text="PARTS LIST" FontSize="22" TextColor="White" HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0" />
+    </Grid>
+	<StackLayout Orientation="Horizontal">
+		<Label Text="Warranty Repair" />
+		<Switch x:Name="switchWarrantyRepair" IsEnabled="false"   />
+		<Label Text="Parts Covered on Warranty" />
+		<Switch x:Name="switchPartsCoveredOnWarranty" IsEnabled="false" />
+	</StackLayout>
+	<StackLayout Orientation="Horizontal">
+		<Label Text="Svc Agmt Repair" />
+		<Switch x:Name="switchSvcAgmtRepair" IsEnabled="false" />
+		<Label Text="Parts Covered on Svc Agmt" />
+		<Switch x:Name="switchPartsCoveredonSvcAgmt" IsEnabled="false" />
+	</StackLayout>
+	<dxGrid:GridControl x:Name="grid" ItemsSource="{Binding ObservablePartsList}" RowTap="Handle_RowTap" ColumnsAutoWidth="false">
+		<dxGrid:GridControl.Columns>
+			<dxGrid:TextColumn FieldName="PartItemCode" Caption="Item Code" Width="150" FixedStyle="Left" />
+			<dxGrid:TextColumn FieldName="PartItemCodeDescription" Caption="Item Descr" Width="200" />
+			<dxGrid:TextColumn FieldName="Warehouse" Caption="Whse" Width="80" />
+			<dxGrid:NumberColumn FieldName="QuantityReqdFormatted" Caption="Qty Req" Width="100" />
+			<dxGrid:NumberColumn FieldName="QuantityFormatted" Caption="Qty Used" Width="100" />
+			<dxGrid:NumberColumn FieldName="UnitCostFormatted" Caption="Unit Cost" Width="100" />
+			<dxGrid:NumberColumn FieldName="UnitPriceFormatted" Caption="Unit Price" Width="100" />
+			<dxGrid:NumberColumn FieldName="ExtdPriceFormatted" Caption="Extd Price" Width="100" />
+			<dxGrid:TextColumn FieldName="UnitOfMeasure" Caption="UOM" Width="120" />
+			<dxGrid:TextColumn FieldName="Comment" Caption="Cmnt" Width="200" />
+		</dxGrid:GridControl.Columns>
+	</dxGrid:GridControl>
+	</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

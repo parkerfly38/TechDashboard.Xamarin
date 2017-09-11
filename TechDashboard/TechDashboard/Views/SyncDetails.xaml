@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TechDashboard.SyncDetails">
+
+	<ContentPage.Content>
+		<ListView x:Name="TIDList" ItemsSource="{Binding TransactionImportDetails}" HasUnevenRows="true">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Spacing="6">
+							<Label Text="{Binding Path=ActivityCode, StringFormat='Activity Code: {0}'}"  />
+							<Label Text="{Binding Path=BillingDescription, StringFormat='Billing Description: {0}' }" />
+							<Label Text="{Binding Path=ChargePart, StringFormat='Carge Part: {0}' }" />
+							<Label Text="{Binding Path=CommentText, StringFormat='Comment Text: {0}' }" />
+							<Label Text="{Binding Path=DeptWorkedIn, StringFormat='Dept Worked In: {0}' }" />
+							<Label Text="{Binding Path=EarningsCode, StringFormat='Earnings Code : {0}' }" />
+							<Label Text="{Binding Path=EmployeeDeptNo, StringFormat='Employee Dept No: {0}' }" />
+							<Label Text="{Binding Path=EmployeeNo, StringFormat='Employee No: {0}' }"  />
+							<Label Text="{Binding Path=EndTime, StringFormat='End Time: {0}' }" />
+							<Label Text="{Binding Path=ExceptionCode, StringFormat='Exception Code: {0}' }"  />
+							<Label Text="{Binding Path=FindNo, StringFormat='Find No: {0}' }" />
+							<Label Text="{Binding Path=HoursWorked, StringFormat='Hours Worked: {0}' }"  />
+							<Label Text="{Binding Path=ImportRecordValid, StringFormat='Import Record Valid: {0}' }"  />
+							<Label Text="{Binding Path=ItemCode, StringFormat='Item Code: {0}' }" />
+							<Label Text="{Binding Path=ItemCodeDesc, StringFormat='Item Code Desc: {0}' }"   />
+							<Label Text="{Binding Path=LastErrorDescription, StringFormat='Last Error Desc: {0}' }"  />
+							<Label Text="{Binding Path=LineKey, StringFormat='Line Key: {0}' }"  />
+							<Label Text="{Binding Path=LineSeqNo, StringFormat='Line Seq No: {0}' }" />
+							<Label Text="{Binding Path=LotSerialNo, StringFormat='Lot Serial No: {0}' }"  />
+							<Label Text="{Binding Path=MeterReading, StringFormat='Meter Reading: {0}' }"   />
+							<Label Text="{Binding Path=MfgSerialNo, StringFormat='Mfg Serial: {0}' }"   />
+							<Label Text="{Binding Path=MobileRecordID, StringFormat='Mobile Record ID: {0}' }"   />
+							<Label Text="{Binding Path=Overhead, StringFormat='Overhead: {0}' }"  />
+							<Label Text="{Binding Path=Overtime, StringFormat='Overtime: {0}' }"  />
+							<Label Text="{Binding Path=PrintPart, StringFormat='Print Part: {0}' }"  />
+							<Label Text="{Binding Path=ProblemCode, StringFormat='Problem Code: {0}' }"  />
+							<Label Text="{Binding Path=PurchasePart, StringFormat='Purchase Part: {0}' }"  />
+							<Label Text="{Binding Path=QuantityCompleted, StringFormat='Quantity Completed: {0}' }"  />
+							<Label Text="{Binding Path=QuantityRequired, StringFormat='Quantity Required: {0}' }"   />
+							<Label Text="{Binding Path=QuantityScrapped, StringFormat='Quantity Scrapped: {0}' }"/>
+							<Label Text="{Binding Path=QuantityUsed, StringFormat='Quantity Used: {0}' }"  />
+							<Label Text="{Binding Path=RecordType, StringFormat='Record Type: {0}' }" />
+							<Label Text="{Binding Path=ReimburseEmployee, StringFormat='Reimburse Employee: {0}' }" />
+							<Label Text="{Binding Path=RemovePart, StringFormat='Remove Part: {0}' }"  />
+							<Label Text="{Binding Path=RepairItemCode, StringFormat='Repair Item Code: {0}' }" />
+							<Label Text="{Binding Path=ResolutionCode, StringFormat='Resolution Code: {0}' }"/>
+							<Label Text="{Binding Path=SalesOrderNo, StringFormat='Sales Order No: {0}' }"  />
+							<Label Text="{Binding Path=ScrapComment, StringFormat='Scrap Comment: {0}' }"  />
+							<Label Text="{Binding Path=ScrapReasonCode, StringFormat='Scrap Reason Code: {0}' }" />
+							<Label Text="{Binding Path=SOLineKey, StringFormat='SO Line Key: {0}' }" />
+							<Label Text="{Binding Path=StartTime, StringFormat='Start Time: {0}'}" />
+							<Label Text="{Binding Path=StatusCode, StringFormat='Status Code: {0}' }" />
+							<Label Text="{Binding Path=StatusComment, StringFormat='Status Comment: {0}'}" />
+							<Label Text="{Binding Path=StatusTime, StringFormat='Status Time: {0}'}" />
+							<Label Text="{Binding Path=StepText, StringFormat='Step Text: {0}'}"  />
+							<Label Text="{Binding Path=SvcAgrmContractCode, StringFormat='SvcAgreement Contract Code: {0}'}" />
+							<Label Text="{Binding Path=TransactionDate, StringFormat='Transaction Date: {0}'}" />
+							<Label Text="{Binding Path=TransactionDateAsDateTime, StringFormat='Transaction Date(DT): {0}'}" />
+							<Label Text="{Binding Path=UnitCost, StringFormat='Unit Cost: {0}'}" />
+							<Label Text="{Binding Path=UnitOfMeasure, StringFormat='Unit of Measure: {0}'}" />
+							<Label Text="{Binding Path=UnitOfMeasureConvFactor, StringFormat='UOM Conv Factor: {0}'}"  />
+							<Label Text="{Binding Path=UnitPrice, StringFormat='Unit Price: {0}'}"  />
+							<Label Text="{Binding Path=WarehouseCode, StringFormat='Warehouse Code: {0}'}"  />
+							<Label Text="{Binding Path=WorkPerformed, StringFormat='Work Performed: {0}'}"  />
+							<Label Text="{Binding Path=WorkTicketHistory, StringFormat='Work Ticket History: {0}'}"  />
+							<Label Text="{Binding Path=WTNumber, StringFormat='WT Number: {0}'}" />
+							<Label Text="{Binding Path=WTStep, StringFormat='WT Step: {0}'}"  />
+							
+						</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</ContentPage.Content>
+</ContentPage>

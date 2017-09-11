@@ -1,0 +1,73 @@
+﻿using RestSharp;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TechDashboard.Models;
+
+namespace TechDashboard.ViewModels
+{
+    public class SyncPageViewModel : INotifyPropertyChanged
+    {
+        private List<JT_TransactionImportDetail> _transactionImportDetails;
+
+        public List<JT_TransactionImportDetail> transactionImportDetails
+        {
+            get { return _transactionImportDetails; }
+            set { _transactionImportDetails = value; }
+        }
+
+        public int UpdateCount
+        {
+            get { return _transactionImportDetails.Count; }
+        }
+
+        public SyncPageViewModel()
+        {
+            _transactionImportDetails = App.Database.GetCurrentExport();
+        }
+
+        public void syncWithServer()
+        {
+            foreach (var transaction in _transactionImportDetails)
+            {
+                var client = new RestSharp.RestClient(App.Database.GetApplicatioinSettings().RestServiceUrl);
+                var request = new RestSharp.RestRequest("/i/JT_TransactionImportDetail", Method.POST);
+                request.RequestFormat = RestSharp.DataFormat.Json;
+                request.AddBody(transaction);
+
+                var response = client.Execute(request) as RestResponse;
+                var content = response.Content;
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    if (Convert.ToBoolean(content) == true)
+                    {
+                        App.Database.DeleteExportRow(transaction);
+                    }
+                }
+            }
+            _transactionImportDetails = App.Database.GetCurrentExport();
+            PropertyChanged(this, new PropertyChangedEventArgs("UpdateCount"));
+            PropertyChanged(this, new PropertyChangedEventArgs("transactionImportDetails"));
+
+            JT_Technician tech = App.Database.GetCurrentTechnicianFromDb();
+
+            var tclient = new RestSharp.RestClient(App.Database.GetApplicatioinSettings().RestServiceUrl);
+            var trequest = new RestSharp.RestRequest("/u/JT_Technician", Method.PUT);
+            trequest.RequestFormat = RestSharp.DataFormat.Json;
+            trequest.AddBody(tech);
+
+            var tresponse = tclient.Execute(trequest) as RestResponse;
+
+            PropertyChanged(this, new PropertyChangedEventArgs("UpdateCount"));
+            PropertyChanged(this, new PropertyChangedEventArgs("transactionImportDetails"));
+
+            PropertyChanged(this, new PropertyChangedEventArgs("UpdateCount"));
+            PropertyChanged(this, new PropertyChangedEventArgs("transactionImportDetails"));
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+    }
+}

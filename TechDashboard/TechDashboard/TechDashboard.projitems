@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>d8c05ec2-0644-4d73-b074-b4bceccbd802</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>TechDashboard</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\ISQLite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\RestClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\SDataClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TdWs_RestClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TechDashboardDatabase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TechDashboardDB_AppSettings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TechDashboardDB_Codes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TechDashboardDB_Customer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TechDashboardDB_ErpOptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TechDashboardDB_Expenses.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TechDashboardDB_Item.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TechDashboardDB_RepairParts.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TechDashboardDB_SalesOrder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TechDashboardDB_Schedule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TechDashboardDB_ServiceAgreement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TechDashboardDB_Technician.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TechDashboardDB_TimeEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TechDashboardDB_WorkTicket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TechDashboardDB_WorkTicketText.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Grouping.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ISms.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SimpleAES.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\BindablePicker.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Extensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Utilities.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AppSettingsPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ClockInPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ClockOutPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CustomerDetailsPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CustomerMapPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ExpensesEditPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ExpensesListPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NotesPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PartsAddPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PartsEditPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PartsListPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RootPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SchedulePageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SyncPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TechnicianListPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TechnicianPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TicketDetailsPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TicketListPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\AppMasterDetailPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\AppSettingsPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ClockInPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BaseContentPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BaseMasterDetailPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BaseSingleContentPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CodeTestPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CustomerDetailsPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CustomerMapPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ClockOutPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ExpensesEditPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ExpensesListPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\HistoryPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MainDashboard.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MainMenu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\NotesPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\PartsAddPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\PartsEditPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\PartsListPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\PartsSearch.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\RootPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SchedulePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SmsMessagePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TechnicianListPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TechnicianPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TicketDetailsPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TicketListPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ScheduleDetailPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ScheduleDetailPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MiscellaneousTimePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MiscellaneousTimePageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TechDashboardDB_Miscellaneous.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TechDashboardDB_History.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HistoryPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\HistoryPageDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SyncPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Reachability.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\ApplicationLog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SignatureCapturePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IHud.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\LoadingPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\App_Settings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SyncDetails.xaml.cs">
+      <DependentUpon>SyncDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SyncDetailsPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\App_BaseObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\App_CurrentSelectionData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\App_CurrentWorkTicket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\App_Customer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\App_CustomerContact.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\App_ErpOptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\App_Expense.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\App_History.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\App_Item.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\App_RepairItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\App_RepairPart.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\App_SalesOrder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\App_ScheduledAppointment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\App_ServiceAgreement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\App_Technician.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\App_WorkTicket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\App_WorkTicketText.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\AR_Customer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\AR_CustomerContact.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\AR_Options.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CI_ExtendedDescription.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CI_Item.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CI_Options.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CI_UnitOfMeasure.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\IM_ItemCost.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\IM_ItemWarehouse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\IM_Warehouse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_ActivityCode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_ClassificationCode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_CustomerBillingRates.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_DailyTimeEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_EarningsCode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_Employee.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_EquipmentAsset.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_FieldServiceOptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_FSDCommunication.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_LaborText.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_MiscellaneousCodes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_Options.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_ServiceAgreementDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_ServiceAgreementHeader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_ServiceAgreementPMDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_ServiceEquipmentParts.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_Technician.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_TechnicianScheduleDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_TechnicianStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_TemplateParts.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_TimeTrackerOptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_Transaction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_TransactionHistory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_TransactionImportDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_WorkTicket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_WorkTicketAttachment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_WorkTicketClass.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_WorkTicketHistory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JT_WorkTicketText.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\PR_EarningsDeduction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\SO_Options.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\SO_SalesOrderDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\SO_SalesOrderHeader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\SO_ShipToAddress.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\TechDashboardDB_ExtendedDescription.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\PartsListPageNew.xaml.cs">
+      <DependentUpon>PartsListPageNew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\PartEditExtdDescPage.xaml.cs">
+      <DependentUpon>PartEditExtdDescPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PartsEditExtdDescPageViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)GettingStarted.Xamarin" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\SyncDetails.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\PartsListPageNew.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\PartEditExtdDescPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

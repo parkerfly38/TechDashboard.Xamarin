@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechDashboard.Views.TestPage">
+  <ContentPage.Content>
+    <StackLayout Padding="30">
+      <StackLayout Orientation="Horizontal">
+        <Label Text="Customer #" WidthRequest="130" />
+        <Entry x:Name="CustomerNo" WidthRequest="150" />
+      </StackLayout>
+
+      <Button x:Name="btnSearchSData" Clicked="btnSearchSData_OnClick" Text="Search SData" TextColor="White" BackgroundColor="Blue" />
+      <Button x:Name="btnSearchDB" Clicked="btnSearchDB_OnClick" Text="Search Database" TextColor="White" BackgroundColor="Blue" />
+
+      <StackLayout Orientation="Horizontal" >
+        <Label Text="Name: " TextColor="Green" WidthRequest="130" />
+        <Label x:Name="lblCustomerName" Text="{Binding CustomerName}" />
+      </StackLayout>
+      <StackLayout Orientation="Horizontal" >
+        <Label Text="Phone: " TextColor="Green" WidthRequest="130" />
+        <Label x:Name="lblTelephoneNo" Text="{Binding TelephoneNo}" />
+      </StackLayout>
+      <StackLayout Orientation="Horizontal" >
+        <Label Text="Ext: " TextColor="Green" WidthRequest="130" />
+        <Label x:Name="lblTelephoneExt" Text="{Binding TelephoneExt}" />
+      </StackLayout>
+
+      <Button x:Name="btnFillDB" Clicked="btnFillDB_OnClick" Text="Fill Database" TextColor="White" BackgroundColor="Blue" />
+
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{28815BED-4092-4E69-8D92-C7C84890F7DD}|Default">
+  <MonoDevelop.Ide.ItemProperties.TechDashboard.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.293D88AF-FFEE-4CAC-A7B9-C3E3528E9C7C" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TechDashboard/TechDashboard/Data/TechDashboardDatabase.cs">
+    <Files>
+      <File FileName="TechDashboard/TechDashboard.iOS/Hud.cs" Line="15" Column="13" />
+      <File FileName="TechDashboard/TechDashboard/Data/TechDashboardDatabase.cs" Line="551" Column="1" />
+      <File FileName="TechDashboard/TechDashboard/Data/TechDashboardDB_Item.cs" Line="171" Column="1" />
+      <File FileName="TechDashboard/TechDashboard.iOS/Main.cs" Line="17" Column="1" />
+      <File FileName="TechDashboard/TechDashboard/Data/TechDashboardDB_Schedule.cs" Line="21" Column="21" />
+      <File FileName="TechDashboard/TechDashboard/Models/SO_ShipToAddress.cs" Line="9" Column="18" />
+      <File FileName="TechDashboard/TechDashboard/Models/SO_SalesOrderHeader.cs" Line="9" Column="79" />
+      <File FileName="TechDashboard/TechDashboard/Models/SO_SalesOrderDetail.cs" Line="12" Column="82" />
+      <File FileName="TechDashboard/TechDashboard/Models/CI_ExtendedDescription.cs" Line="14" Column="91" />
+      <File FileName="TechDashboard/TechDashboard/Data/RestClient.cs" Line="218" Column="1" />
+      <File FileName="TechDashboard/TechDashboard/Data/TechDashboardDB_AppSettings.cs" Line="112" Column="1" />
+      <File FileName="TechDashboard/TechDashboard/Data/TdWs_RestClient.cs" Line="51" Column="1" />
+      <File FileName="TechDashboard/TechDashboard/SimpleAES.cs" Line="67" Column="1" />
+      <File FileName="TechDashboard/TechDashboard/Data/TechDashboardDB_Customer.cs" Line="141" Column="1" />
+      <File FileName="TechDashboard/TechDashboard/Data/TechDashboardDB_SalesOrder.cs" Line="107" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.TechDashboard.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+  <MultiItemStartupConfigurations />
+</Properties>

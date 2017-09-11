@@ -1,0 +1,394 @@
+﻿using System;
+
+using Xamarin.Forms;
+using TechDashboard.Models;
+using TechDashboard.ViewModels;
+
+namespace TechDashboard.Views
+{
+    public class DecimalConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            if (value is decimal)
+                return value.ToString();
+            return value;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            decimal dec;
+            if (decimal.TryParse(value as string, out dec))
+                return dec;
+            return value;
+        }
+    }
+
+    public class PartsEditPage : ContentPage
+	{
+        public enum PageMode
+        {
+            Add,
+            Edit
+        };
+
+        PartsEditPageViewModel _vm;
+        PageMode _pageMode;
+        Xamarin.Forms.Label _labelTitle;
+
+        Label _labelPartNumber;
+        Label _labelPartDescription;
+        Picker _pickerSerialNumber;
+        Picker _pickerWarehouse;
+        Entry _entryQuantity;
+        Entry _entryUnitOfMeasure;
+        Entry _entryUnitCost;
+        Entry _entryUnitPrice;
+        Label _labelExtensionPrice;
+        Button _buttonAddPart;
+        Button _buttonCancel;
+        Entry _entryComments;
+        Switch _switchIsChargeable;
+        Switch _switchIsPrintable;
+        Switch _switchIsPurchased;
+        Switch _switchIsOverhead;        
+
+        public PartsEditPage(App_WorkTicket workTicket, CI_Item part, PageMode pageMode)
+        {
+            _pageMode = pageMode;
+            _vm = new PartsEditPageViewModel(workTicket, part);
+
+            SetPageLayout();
+        }
+
+        public PartsEditPage(App_WorkTicket workTicket, App_RepairPart part, PageMode pageMode)
+        {
+            _pageMode = pageMode;
+            _vm = new PartsEditPageViewModel(workTicket, part);
+
+            SetPageLayout();
+        }
+
+        protected void SetPageLayout()
+        {
+            //  Create a label for the technician list
+            _labelTitle = new Xamarin.Forms.Label();
+
+            // Set the page title.
+            switch (_pageMode)
+            {
+                case PageMode.Add:
+                    Title = "Add Part";
+                    _labelTitle.Text = "ADD PART";
+                    break;
+                case PageMode.Edit:
+                    Title = "Edit Part";
+                    _labelTitle.Text = "EDIT PART";
+                    break;
+                default:
+                    Title = "Add/Edit Part";
+                    _labelTitle.Text = "ADD/EDIT PART";
+                    break;
+            }
+
+            BindingContext = _vm.PartToEdit;
+
+            _labelTitle.FontFamily = Device.OnPlatform("OpenSans-Bold", null, null);
+            _labelTitle.FontSize = 22;
+            _labelTitle.TextColor = Color.White;
+            _labelTitle.HorizontalTextAlignment = TextAlignment.Center;
+            _labelTitle.VerticalTextAlignment = TextAlignment.Center;
+
+            Grid titleLayout = new Grid()
+            {
+                BackgroundColor = Color.FromHex("#2980b9"),
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                HeightRequest = 80
+            };
+            titleLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+            titleLayout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            titleLayout.Children.Add(_labelTitle, 0, 0);
+
+            Color asbestos = Color.FromHex("#7f8C8d");
+
+            _labelPartNumber = new Label();
+            _labelPartNumber.SetBinding(Label.TextProperty, "PartItemCode");
+            _labelPartNumber.FontFamily = Device.OnPlatform("OpenSans-Bold", null, null);
+            _labelPartNumber.TextColor = asbestos;
+            _labelPartNumber.HorizontalOptions = LayoutOptions.FillAndExpand;
+
+            _labelPartDescription = new Label();
+            _labelPartDescription.SetBinding(Label.TextProperty, "PartItemCodeDescription");
+            _labelPartDescription.FontFamily = Device.OnPlatform("OpenSans-Bold", null, null);
+            _labelPartDescription.TextColor = asbestos;
+            _labelPartDescription.HorizontalOptions = LayoutOptions.FillAndExpand;
+
+            _pickerSerialNumber = new Picker();
+            _pickerSerialNumber.Title = "MFG. Serial";
+            foreach (string serialNumber in _vm.GetMfgSerialNumbersForPart())
+            {
+                _pickerSerialNumber.Items.Add(serialNumber);
+            }
+            if ((_pickerSerialNumber.Items == null) || (_pickerSerialNumber.Items.Count == 0))
+            {
+                _pickerSerialNumber.IsVisible = false;
+            }
+            else
+            {
+                _pickerSerialNumber.IsVisible = true;
+                _pickerSerialNumber.SelectedIndex = 0;
+            }
+
+            _pickerWarehouse = new Picker();
+            _pickerWarehouse.Title = "Warehouse";
+            _pickerWarehouse.WidthRequest = 100;
+            foreach (string warehouse in _vm.WarehouseList)
+            {
+                _pickerWarehouse.Items.Add(warehouse);
+            }
+            try { _pickerWarehouse.SelectedIndex = _pickerWarehouse.Items.IndexOf(_vm.PartToEdit.Warehouse); } catch { }
+            //_pickerWarehouse.SelectedIndex = 0;
+
+            _entryQuantity = new Entry();            
+            _entryQuantity.Placeholder = "QTY";
+            _entryQuantity.Keyboard = Keyboard.Numeric;
+            _entryQuantity.SetBinding(Entry.TextProperty, new Binding("Quantity", converter: new DecimalConverter()));
+            _entryQuantity.TextChanged += EntryQuantity_TextChanged;
+			_entryQuantity.FontFamily = Device.OnPlatform("OpenSans-Regular", null, null);
+			_entryQuantity.TextColor = asbestos;
+            _entryQuantity.Text = "1";
+
+            _entryUnitOfMeasure = new Entry();
+            _entryUnitOfMeasure.Placeholder = "U/M";           
+            _entryUnitOfMeasure.SetBinding(Entry.TextProperty, "UnitOfMeasure");
+			_entryUnitOfMeasure.FontFamily = Device.OnPlatform("OpenSans-Regular", null, null);
+			_entryUnitOfMeasure.TextColor = asbestos;
+
+            _entryUnitCost = new Entry();
+            _entryUnitCost.Placeholder = "COST";
+            _entryUnitCost.Keyboard = Keyboard.Numeric;
+            _entryUnitCost.SetBinding(Entry.TextProperty, new Binding("UnitCost", converter: new DecimalConverter()));
+            _entryUnitCost.IsEnabled = false;
+			_entryUnitCost.FontFamily = Device.OnPlatform("OpenSans-Regular", null, null);
+			_entryUnitCost.TextColor = asbestos;
+
+            _entryUnitPrice = new Entry();
+            _entryUnitPrice.Placeholder = "PRICE";
+            _entryUnitPrice.Keyboard = Keyboard.Numeric;
+            _entryUnitPrice.SetBinding(Entry.TextProperty, new Binding("UnitPrice", converter: new DecimalConverter()));
+            _entryUnitPrice.IsEnabled = false;
+			_entryUnitPrice.FontFamily = Device.OnPlatform("OpenSans-Regular", null, null);
+			_entryUnitPrice.TextColor = asbestos;
+
+            _labelExtensionPrice = new Label();
+            _labelExtensionPrice.Text = (_vm.PartToEdit.UnitPrice * _vm.PartToEdit.Quantity).ToString();
+			_labelExtensionPrice.FontFamily = Device.OnPlatform("OpenSans-Regular", null, null);
+			_labelExtensionPrice.TextColor = asbestos;
+
+            _entryComments = new Entry();
+            _entryComments.Placeholder = "COMMENTS";
+            _entryComments.SetBinding(Entry.TextProperty, "Comment");
+			_entryComments.TextColor = asbestos;
+			_entryComments.FontFamily = Device.OnPlatform("OpenSans-Regular", null, null);
+
+            _switchIsChargeable = new Switch();
+            _switchIsChargeable.SetBinding(Switch.IsToggledProperty, "IsChargeable");
+			_switchIsChargeable.HorizontalOptions = LayoutOptions.End;
+
+            _switchIsPrintable = new Switch();
+            _switchIsPrintable.SetBinding(Switch.IsToggledProperty, "IsPrintable");
+			_switchIsPrintable.HorizontalOptions = LayoutOptions.End;
+
+            _switchIsPurchased = new Switch();
+            _switchIsPurchased.SetBinding(Switch.IsToggledProperty, "IsPurchased");
+			_switchIsPurchased.HorizontalOptions = LayoutOptions.End;
+
+            _switchIsOverhead = new Switch();
+            _switchIsOverhead.SetBinding(Switch.IsToggledProperty, "IsOverhead");
+			_switchIsOverhead.HorizontalOptions = LayoutOptions.End;
+
+            Grid topGrid = new Grid();
+            topGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            topGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            topGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            topGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(150, GridUnitType.Absolute) });
+            topGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+
+            topGrid.Children.Add(_labelPartNumber, 0, 0);
+            topGrid.Children.Add(_labelPartDescription, 1, 0);
+
+            topGrid.Children.Add(new Label
+            {
+                Text = "MFG. SERIAL:",
+                FontFamily = Device.OnPlatform("OpenSans-Bold", null, null),
+                TextColor = asbestos
+            }, 0, 1);
+            topGrid.Children.Add(_pickerSerialNumber, 1, 1);
+
+            topGrid.Children.Add(
+                new Label
+                {
+                    Text = "WAREHOUSE:",
+                    FontFamily = Device.OnPlatform("OpenSans-Bold", null, null),
+                    TextColor = asbestos
+                }
+                , 0, 2);
+            topGrid.Children.Add(_pickerWarehouse, 1, 2);
+
+            Grid amtsGrid = new Grid();
+            amtsGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            amtsGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            amtsGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            amtsGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            amtsGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(150, GridUnitType.Absolute) });
+            amtsGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(100, GridUnitType.Absolute) });
+            amtsGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(100, GridUnitType.Absolute) });
+
+            amtsGrid.Children.Add(new Label { Text = "QTY:", FontFamily = Device.OnPlatform("OpenSans-Bold", null, null), TextColor = asbestos }, 0, 0);
+            amtsGrid.Children.Add(_entryQuantity, 1, 0);
+            amtsGrid.Children.Add(_entryUnitOfMeasure, 2, 0);
+
+            amtsGrid.Children.Add(new Label { Text = "UNIT COST:", FontFamily = Device.OnPlatform("OpenSans-Bold", null, null), TextColor = asbestos }, 0, 1);
+            amtsGrid.Children.Add(_entryUnitCost, 1, 1);
+
+            amtsGrid.Children.Add(new Label { Text = "UNIT PRICE:", FontFamily = Device.OnPlatform("OpenSans-Bold", null, null), TextColor = asbestos }, 0, 2);
+            amtsGrid.Children.Add(_entryUnitPrice, 1, 2);
+
+            amtsGrid.Children.Add(new Label { Text = "EXT. PRICE:", FontFamily = Device.OnPlatform("OpenSans-Bold", null, null), TextColor = asbestos }, 0, 3);
+            amtsGrid.Children.Add(_labelExtensionPrice, 1, 3);
+
+            _buttonAddPart = new Button();
+            switch(_pageMode)
+            {
+                case PageMode.Add:
+                    _buttonAddPart.Text = "ADD";
+                    break;
+                case PageMode.Edit:
+                    _buttonAddPart.Text = "UPDATE";
+                    break;
+            }            
+            _buttonAddPart.Clicked += ButtonAddPart_Click;
+
+			_buttonAddPart.FontFamily = Device.OnPlatform("OpenSans-Bold", null, null);
+			_buttonAddPart.TextColor = Color.White;
+			_buttonAddPart.BackgroundColor = Color.FromHex("#2ECC71");
+			_buttonAddPart.HorizontalOptions = LayoutOptions.FillAndExpand;
+
+            _buttonCancel = new Xamarin.Forms.Button();
+            _buttonCancel.Text = "CANCEL";
+			_buttonCancel.TextColor = Color.White;
+			_buttonCancel.FontFamily = Device.OnPlatform("OpenSans-Bold", null, null);
+			_buttonCancel.BackgroundColor = Color.FromHex("#E74C3C");
+            _buttonCancel.Clicked += ButtonCancel_Click;
+			_buttonCancel.HorizontalOptions = LayoutOptions.FillAndExpand;
+                   
+            Content = new StackLayout
+            {
+				Padding = 30,
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				Children =
+                {
+                    titleLayout,
+                    topGrid,
+                    amtsGrid,
+                    _entryComments,
+                    new StackLayout
+                    {
+                        Orientation = StackOrientation.Horizontal,
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        Children =
+                        {
+							new Xamarin.Forms.Label { Text = "CHARGE:", FontFamily = Device.OnPlatform("OpenSans-Bold", null, null), TextColor = asbestos },
+                            _switchIsChargeable
+                        }
+                    },
+                    new StackLayout
+                    {
+                        Orientation = StackOrientation.Horizontal,
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        Children =
+                        {
+							new Xamarin.Forms.Label { Text = "PRINT:", FontFamily =  Device.OnPlatform("OpenSans-Bold", null, null), TextColor = asbestos },
+                            _switchIsPrintable
+                        }
+                    },
+                    new StackLayout
+                    {
+                        Orientation = StackOrientation.Horizontal,
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        Children =
+                        {
+							new Xamarin.Forms.Label { Text = "PURCHASE:", FontFamily = Device.OnPlatform("OpenSans-Bold", null, null), TextColor = asbestos },
+                            _switchIsPurchased
+                        }
+                    },
+                    new StackLayout
+                    {
+                        Orientation = StackOrientation.Horizontal,
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        Children =
+                        {
+							new Xamarin.Forms.Label { Text = "OVERHEAD:", FontFamily = Device.OnPlatform("OpenSans-Bold", null, null), TextColor = asbestos },
+                            _switchIsOverhead
+                        }
+                    },
+                    new StackLayout
+                    {
+                        Orientation = StackOrientation.Horizontal,
+						HorizontalOptions = LayoutOptions.FillAndExpand,
+                        Children =
+                        {
+                            _buttonAddPart,
+                            _buttonCancel
+                        }
+                    },
+                }
+			};
+		}
+
+        private void EntryQuantity_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                double qty;
+                double.TryParse(_entryQuantity.Text, out qty);
+                double unitPrice;
+                double.TryParse(_entryUnitPrice.Text, out unitPrice);
+                double newExtensionPrice = qty * unitPrice;
+                _labelExtensionPrice.Text = newExtensionPrice.ToString("C2");
+                if (qty == 0) { _entryQuantity.Text = ""; }
+            }
+            catch
+            {
+                // don't do anything
+            }                
+        }
+
+        protected async void ButtonAddPart_Click(object sender, EventArgs e)
+        {
+            _vm.PartToEdit.Warehouse = _pickerWarehouse.Items[_pickerWarehouse.SelectedIndex];
+
+            // puke
+            switch(_pageMode)
+            {
+                case PageMode.Add:
+                    _vm.AddPartToPartsList();
+                    //await Navigation.PopAsync();
+                    break;
+                case PageMode.Edit:
+                    _vm.UpdatePartOnPartsList();
+                    break;
+            }
+            
+            await Navigation.PopAsync();
+                  
+        }
+
+        protected async void ButtonCancel_Click(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
+        
+    }
+}
